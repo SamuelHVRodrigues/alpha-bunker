@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Receipt } from 'phosphor-react';
 import { useParams } from 'react-router-dom';
 import { Header } from '../../components/Header';
@@ -13,6 +14,7 @@ import { Header } from '../../components/Header';
 
 export const Transaction = () => {
   const { transactionId } = useParams<Record<string, string | undefined>>();
+  const [type, setType] = useState('');
   console.log(transactionId);
 
   return (
@@ -37,16 +39,19 @@ export const Transaction = () => {
               <p>Data: 03/07/2022 20:45</p>
             </div>
           </div>
-
           <div>
-            <p className="text-paragraph-light-100">Dados de destino:</p>
-            <div className="px-1">
-              <div className="flex flex-col">
-                <p>Nome: Dhalsim Fonseca</p>
-                <p>Agência: 1027-7</p>
-                <p>Conta: 93459-2</p>
-              </div>
-            </div>
+            {type === 'tranfer' ? (
+              <>
+                <p className="text-paragraph-light-100">Dados de destino:</p>
+                <div className="px-1">
+                  <div className="flex flex-col">
+                    <p>Nome: Dhalsim Fonseca</p>
+                    <p>Agência: 1027-7</p>
+                    <p>Conta: 93459-2</p>
+                  </div>
+                </div>
+              </>
+            ) : null}
             <div className="flex flex-row justify-between pt-2">
               <p className="text-base text-paragraph-light-100">Valor</p>
               <p className="text-input-error text-center">- R$26,49</p>

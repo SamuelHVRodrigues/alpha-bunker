@@ -14,19 +14,16 @@ import { Button } from '../../components/Button';
 import { Modal } from '../../components/Modal';
 import { api } from '../../libs/api';
 import { useState } from 'react';
+import { useUser } from '../../providers/UserProvider';
 
-interface PropTypes {
-  agency: string;
-  account: string;
-}
-
-export const Transfer = ({ agency, account }: PropTypes) => {
-  const [modal, setModal] = useState(true);
+export const Transfer = () => {
+  const { account } = useUser();
+  const [modal, setModal] = useState(false);
+  const formData = {};
 
   async function handleTransfer() {
     try {
       await api.post('transfer', {
-        agency: { agency },
         account: { account },
       });
     } catch (error) {
@@ -120,7 +117,7 @@ export const Transfer = ({ agency, account }: PropTypes) => {
           category="primary"
           label="Transferir"
           type="button"
-          onClick={handleTransfer}
+          onClick={() => setModal(true)}
         />
       </div>
     </section>

@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom';
 import { useUser } from '../providers/UserProvider';
 import {
   ArrowsLeftRight,
@@ -8,8 +9,8 @@ import {
   UploadSimple,
   UserCircle,
 } from 'phosphor-react';
-
 export const Header = () => {
+  const navigate = useNavigate();
   const { user } = useUser();
   const [numberAgency, numberAcount, value] = [
     '1510 - 5',
@@ -33,7 +34,10 @@ export const Header = () => {
         </div>
         <div className="flex justify-around p-2">
           {/* extract button start*/}
-          <div className="flex flex-col justify-center items-center hover:cursor-pointer">
+          <div
+            className="flex flex-col justify-center items-center hover:cursor-pointer"
+            onClick={() => navigate('/extract')}
+          >
             <button className="w-14 p-3 rounded bg-btn-primary-hover flex justify-center">
               <Bank size={20} className="text-icon-light" />
             </button>
@@ -41,7 +45,10 @@ export const Header = () => {
           </div>
           {/* extract button end*/}
           {/* transfer button start*/}
-          <div className="flex flex-col justify-center items-center hover:cursor-pointer">
+          <div
+            className="flex flex-col justify-center items-center hover:cursor-pointer"
+            onClick={() => navigate('/transfer')}
+          >
             <button className="w-14 p-3 rounded bg-btn-primary-hover flex justify-center">
               <ArrowsLeftRight size={20} className="text-icon-light" />
             </button>
@@ -49,7 +56,10 @@ export const Header = () => {
           </div>
           {/* transfer button end*/}
           {/* deposit button start*/}
-          <div className="flex flex-col justify-center items-center hover:cursor-pointer">
+          <div
+            className="flex flex-col justify-center items-center hover:cursor-pointer"
+            onClick={() => navigate('/deposit')}
+          >
             <button className="w-14 p-3 rounded bg-btn-primary-hover flex justify-center">
               <UploadSimple size={20} className="text-icon-light" />
             </button>
@@ -57,7 +67,10 @@ export const Header = () => {
           </div>
           {/* deposit button end*/}
           {/* withdraw button start*/}
-          <div className="flex flex-col justify-center items-center hover:cursor-pointer">
+          <div
+            className="flex flex-col justify-center items-center hover:cursor-pointer"
+            onClick={() => navigate('/withdraw')}
+          >
             <button className="w-14 p-3 rounded bg-btn-primary-hover flex justify-center">
               <DownloadSimple size={20} className="text-icon-light" />
             </button>

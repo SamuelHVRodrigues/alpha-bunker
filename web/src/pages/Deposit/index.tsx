@@ -16,7 +16,7 @@ import { Modal } from '../../components/Modal';
 import { api } from '../../libs/api';
 
 export const Deposit = () => {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   async function handleDeposit() {
     try {
@@ -94,7 +94,7 @@ export const Deposit = () => {
           category="primary"
           label="Depositar"
           type="button"
-          onClick={() => console.log('Opa')}
+          onClick={() => setModal(true)}
         />
       </div>
     </section>

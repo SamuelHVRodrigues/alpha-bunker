@@ -16,7 +16,7 @@ import { Modal } from '../../components/Modal';
 import { api } from '../../libs/api';
 
 export const Withdraw = () => {
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
 
   async function handleWithdraw() {
     try {
@@ -94,7 +94,7 @@ export const Withdraw = () => {
           category="primary"
           label="Sacar"
           type="button"
-          onClick={() => console.log('Opa')}
+          onClick={() => setModal(true)}
         />
       </div>
     </section>
