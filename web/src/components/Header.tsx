@@ -30,7 +30,11 @@ export const Header = () => {
           <h1 className="text-header-light text-xl">
             Bem vindo, {user?.name}!
           </h1>
-          <UserCircle size={20} className="text-header-light" />
+          <UserCircle
+            size={20}
+            className="text-header-light"
+            onClick={() => navigate('/profile')}
+          />
         </div>
         <div className="flex justify-around p-2">
           {/* extract button start*/}

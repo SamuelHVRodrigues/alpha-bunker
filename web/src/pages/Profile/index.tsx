@@ -1,6 +1,7 @@
 import { ArrowLeft, IdentificationCard, Vault } from 'phosphor-react';
 import { useUser } from '../../providers/UserProvider';
 import avatar from '../../assets/avatar.svg';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * Archive: src/pages/Profile.tsx
@@ -14,12 +15,17 @@ import avatar from '../../assets/avatar.svg';
 
 export const Profile = () => {
   const { user } = useUser();
+  const navigate = useNavigate();
 
   return (
-    <header className="w-screen flex flex-col items-center">
+    <header className="w-screen h-screen flex flex-col items-center justify-start">
       <section className="w-full bg-brand-base rounded-b-2xl p-6 pb-11">
         <div>
-          <ArrowLeft size={20} className="text-icon-light" />
+          <ArrowLeft
+            size={20}
+            className="text-icon-light"
+            onClick={() => navigate(-1)}
+          />
           <div className="flex flex-col items-center">
             <img src={avatar} alt="Profile picture" />
             <h1 className="text-header-light font-medium text-xl mt-3">
